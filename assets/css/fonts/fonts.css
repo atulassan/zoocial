@@ -1,0 +1,59 @@
+
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('proximanova-bold_0-webfont.eot');
+    src: url('proximanova-bold_0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('proximanova-bold_0-webfont.woff2') format('woff2'),
+         url('proximanova-bold_0-webfont.woff') format('woff'),
+         url('proximanova-bold_0-webfont.ttf') format('truetype'),
+         url('proximanova-bold_0-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proxima_nova_semigbold';
+    src: url('proximanova-semibold_0-webfont.eot');
+    src: url('proximanova-semibold_0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('proximanova-semibold_0-webfont.woff2') format('woff2'),
+         url('proximanova-semibold_0-webfont.woff') format('woff'),
+         url('proximanova-semibold_0-webfont.ttf') format('truetype'),
+         url('proximanova-semibold_0-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proxima_novalight';
+    src: url('proximanova-light_0-webfont.eot');
+    src: url('proximanova-light_0-webfont.eot?#iefix') format('embedded-opentype'),
+         url('proximanova-light_0-webfont.woff2') format('woff2'),
+         url('proximanova-light_0-webfont.woff') format('woff'),
+         url('proximanova-light_0-webfont.ttf') format('truetype'),
+         url('proximanova-light_0-webfont.svg#proxima_novalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_novathin';
+    src: url('proxima-nova-thin-webfont.woff2') format('woff2'),
+         url('proxima-nova-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'proxima_nova';
+    src: url('ProximaNova-Regular-webfont.eot');
+    src: url('ProximaNova-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ProximaNova-Regular-webfont.woff2') format('woff2'),
+         url('ProximaNova-Regular-webfont.woff') format('woff'),
+         url('ProximaNova-Regular-webfont.ttf') format('truetype'),
+         url('ProximaNova-Regular-webfont.svg#proxima_novalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

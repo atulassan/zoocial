@@ -1,0 +1,15 @@
+<% if(utls.isEmpty(subcategories)) { %>
+<div class="subcategories">
+  <div class="row">
+    <% subcategories.forEach(function(subcategory, el) { %>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-6 mb-3">
+      <a href="/categories/<%= subcategory.id %>">
+        <img style="max-width:100%; height:auto;" src="<%= subcategory.image.src %>" alt="<%= subcategory.name %>"
+          title="<%= subcategory.name %>" />
+        <b><%= subcategory.name %></b>
+      </a>
+    </div>
+    <% }); %>
+  </div>
+</div>
+<% } %>

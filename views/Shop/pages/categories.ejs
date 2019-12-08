@@ -1,0 +1,47 @@
+.<% include ../templates/shop-header %>
+<div class="clear-all"></div>
+<% include ../modules/sliders %>
+<section id="" class="inner-grey-bg pb-5">
+	<div class="container">
+		<div class="form-row">
+			<div class="col-lg-12 col-md-12 pt-4">
+				<div class="row">
+					<div class="col-lg-3 col-md-3">
+						<div class="leftFilterSticky">
+							<% include ../modules/categories-menu %>
+							<div class="leftFilterSpace"></div>
+							<h4 class="shopProductTitles">Marken</h4>
+							<hr>
+							<ul class="filterList">
+								<li><a href="">Almo nature</a></li>
+								<li><a href="">Animonda</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9">
+						<div class="marketproducts">
+							<!-- Category listing Starts -->
+							<div class="row">
+								<% if(utls.isEmpty(categories)) { %>
+								<% categories.forEach(function(category, el) { %>
+								<div class="col-lg-4 col-md-4 col-sm-6 col-6 mb-3">
+									<a href="/categories/<%= category.id %>">
+										<img style="max-width:100%; height:auto;" src="<%= category.image.src %>"
+											alt="<%= category.name %>" title="<%= category.name %>" />
+										<b><%= category.name %></b>
+									</a>
+								</div>
+								<% }); %>
+								<% } else { %>
+									<h3>Kommt bald...</h3>
+								<% } %>
+							</div>
+							<!-- Category listing End -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<% include ../templates/shop-footer %>

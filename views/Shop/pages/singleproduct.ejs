@@ -1,0 +1,294 @@
+<% include ../templates/shop-header-inner %>
+<section id="" class="inner-grey-bg pb-5 pt-4">
+	<div class="container">
+		<div class="form-row">
+			<div class="col-lg-12 col-md-12">
+				<div class="main-post-box white-bg br-6 p-15 mb-3">
+					<div class="row">
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div id="product-detail" class="eagle-gallery">
+								<div class="owl-carousel">
+									<% if(utls.isEmpty(product.images)) { %>
+									<% product.images.forEach(function(image, el) { %>
+									<img src="<%= image.src %>" data-medium-img="<%= image.src %>"
+										data-big-img="<%= image.src %>" alt="">
+									<% }); %>
+									<% } %>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="info-panel product-view">
+								<h2 class="product-title wow fadeInUp">
+									<span>product</span>
+									<%= product.name %>
+								</h2>
+								<div class="weight"><%= product.short_description %></div>
+								<div class="table-responsive">
+									<table class="table grouped-items-table ">
+										<tbody>
+											<tr class="">
+												<td>
+													<div class="grouped-name">12 kg</div>
+													<div class="grouped-tax tax-info">
+														<span class="baseprice-label"> Kilopreis CHF .00 <span
+																id="priceperkilo">CHF 1212.00 </span>.00</span>
+													</div>
+												</td>
+												<td class="a-right a-right-grouped">
+													<div class="price-info-block">
+														<div class="price-box">
+															<span class="regular-price">
+																<span class="price">CHF&nbsp;1212.00 </span></span>
+														</div>
+													</div>
+												</td>
+												<td>
+													<div class="add-tocart-grouped">
+														<div class="DropTriangle add-tocart-grouped-arrow">
+															<select id="quantity" name="quantity">
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+																<option value="7">7</option>
+																<option value="8">8</option>
+																<option value="9">9</option>
+																<option value="10">10</option>
+																<option value="15">15</option>
+																<option value="20">20</option>
+																<option value="30">30</option>
+																<option value="40">40</option>
+															</select>
+														</div>
+													</div>
+												</td>
+												<td>
+													<div class="add-tocart-grouped">
+														<a data-toggle="modal" data-target="#addtocart-add-confirm"
+															id="" var-id="" product-id=""
+															class="btn inner-gradient-bg add_to_cart"
+															href="javascript:;"><i class="fa fa-shopping-cart "></i></a>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="">
+						<div class="short-desc">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="Artikelbeschreibung-tab" data-toggle="tab"
+										href="#Artikelbeschreibung" role="tab" aria-controls="Artikelbeschreibung"
+										aria-selected="true">Artikelbeschreibung</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="Inhaltsstoffe-tab" data-toggle="tab" href="#Inhaltsstoffe"
+										role="tab" aria-controls="Inhaltsstoffe" aria-selected="false">Inhaltsstoffe</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="Zusammensetzung-tab" data-toggle="tab"
+										href="#Zusammensetzung" role="tab" aria-controls="Zusammensetzung"
+										aria-selected="false">Zusammensetzung</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="Kundenmeinungen-tab" data-toggle="tab"
+										href="#Kundenmeinungen" role="tab" aria-controls="Kundenmeinungen"
+										aria-selected="false">Kundenmeinungen</a>
+								</li>
+							</ul>
+
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="Artikelbeschreibung" role="tabpanel"
+									aria-labelledby="Artikelbeschreibung-tab">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+								</div>
+								<div class="tab-pane fade" id="Inhaltsstoffe" role="tabpanel"
+									aria-labelledby="Inhaltsstoffe-tab">
+									<h5>ANALYTISCHE BESTANDTEILE:</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+								</div>
+								<div class="tab-pane fade" id="Zusammensetzung" role="tabpanel"
+									aria-labelledby="Zusammensetzung-tab">
+									<h5>ZUSAMMENSETZUNG:</h5>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam! Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!Lorem
+										ipsum dolor sit amet, consectetur adipisicing elit. Possimus placeat, natus
+										ratione earum saepe ipsa perspiciatis voluptates quisquam dolorum tenetur at
+										assumenda blanditiis quasi, rerum ullam facere optio architecto ipsam!</p>
+								</div>
+								<div class="tab-pane fade" id="Kundenmeinungen" role="tabpanel"
+									aria-labelledby="Kundenmeinungen-tab">
+									<ul class="customer-reviews">
+										<li>
+											<h5>review title</h5>
+											<h6>
+												<span class="product_comments__autor">review name</span>
+												<span class="product_comments__date">review date</span>
+												<span class="customerReviewRate shoprating">
+													<div id="productRating" class="rating positive" value="">
+														review.count</div>
+													<div id="JRating" class="rating negative" style="width: 100%"></div>
+												</span>
+											</h6>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur
+												magnam nulla alias ut esse pariatur repellat, deleniti tempore incidunt
+												recusandae! </p>
+										</li>
+										<li>
+											<h5>review title</h5>
+											<h6>
+												<span class="product_comments__autor">review name</span>
+												<span class="product_comments__date">review date</span>
+												<span class="customerReviewRate shoprating">
+													<div id="productRating" class="rating positive" value="">
+														review.count</div>
+													<div id="JRating" class="rating negative" style="width: 100%"></div>
+												</span>
+											</h6>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur
+												magnam nulla alias ut esse pariatur repellat, deleniti tempore incidunt
+												recusandae! </p>
+										</li>
+										<li>
+											<h5>review title</h5>
+											<h6>
+												<span class="product_comments__autor">review name</span>
+												<span class="product_comments__date">review date</span>
+												<span class="customerReviewRate shoprating">
+													<div id="productRating" class="rating positive" value="">
+														review.count</div>
+													<div id="JRating" class="rating negative" style="width: 100%"></div>
+												</span>
+											</h6>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur
+												magnam nulla alias ut esse pariatur repellat, deleniti tempore incidunt
+												recusandae! </p>
+										</li>
+
+										<!-- <li>No reviews</li> -->
+
+
+
+									</ul>
+
+									<div class="PostReviews">
+										<form name="reviews" id="reviews">
+											<h3>Ihre Bewertung <span class="PostRating" id="PostRating"></span></h3>
+											<div class="form-group">
+												<label><span class="errorMsg" style="display:none;">Feld ist
+														erforderlich</span>Ihr Name:</label>
+
+												<input type="text" name="rname" class="form-control" id="rname"
+													required>
+											</div>
+											<div class="form-group">
+												<label><span class="errorMsg" style="display:none;">Feld ist
+														erforderlich</span>Überschrift:</label>
+												<input type="text" name="rtitle" class="form-control" id="rtitle"
+													required>
+												<input type="hidden" class="form-control" name="productid" value="">
+												<input type="hidden" id="review_count" class="form-control"
+													name="product_rcount" value="3">
+											</div>
+											<div class="form-group">
+												<label><span class="errorMsg" style="display:none;">Feld ist
+														erforderlich</span>Bewertungstext</label>
+												<textarea class="form-control" name="rdescription" id="rdescription"
+													rows="3" required></textarea>
+											</div>
+											<p>Mit "Absenden" des Online-Formulars bin ich mit den Teilnahmebedingungen
+												einverstanden.</p>
+
+										</form>
+										<div class="form-group mt-3">
+											<button
+												class="btn btn-primary inner-gradient-bg review_submit">Absenden</button>
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+<% include ../templates/shop-footer %>

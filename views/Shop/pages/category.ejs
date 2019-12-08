@@ -1,0 +1,68 @@
+<% include ../templates/shop-header %>
+<div class="clear-all"></div>
+<!-- <div class="parallax-container">
+        <div class="parallax">
+                <div class = "header-title">
+                <h1>Zoocial</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+        </div>
+          <div class="parallax-window" data-parallax="scroll" data-image-src="images/main-banner.jpg"></div>
+        </div>
+</div> -->
+<% include ../modules/sliders %>
+<section id="" class="inner-grey-bg pb-5">
+	<div class="container">
+		<div class="form-row">
+			<div class="col-lg-12 col-md-12 pt-4">
+				<div class="row">
+					<div class="col-lg-3 col-md-3">
+						<div class="leftFilterSticky">
+							<% include ../modules/categories-menu %>
+							<div class="leftFilterSpace"></div>
+							<h4 class="shopProductTitles">Preis</h4>
+							<hr>
+							<ul class="filterList">
+								<li><a href="">Unter 20 CHF</a></li>
+								<li><a href="">20 - 100 CHF</a></li>
+								<li><a href="">Über 100</a></li>
+							</ul>
+							<div class="leftFilterSpace"></div>
+
+							<h4 class="shopProductTitles">Marken</h4>
+							<hr>
+							<ul class="filterList">
+								<li><a href="">Almo nature</a></li>
+								<li><a href="">Animonda</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-9">
+
+						<% if(utls.isEmpty(subcategories)) { %>
+							<% include ../modules/subcategories %>
+						<% } %>
+
+						<div class="marketproducts">
+							<!-- product filter  Start -->
+							<% include ../modules/product-filter %>
+							<!-- Product filter  End -->
+
+							<!-- product listing Start -->
+							<div class="row">
+								<% if(utls.isEmpty(products)) { %>
+									<% products.forEach(function(product, el) { %>
+										<% include ../modules/product %>
+									<% }); %>
+								<% } else { %>
+								<h3>Kommt bald...</h3>
+								<% } %>
+							</div>
+							<!-- product listing End -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<% include ../templates/shop-footer %>

@@ -1,0 +1,716 @@
+<% include ../templates/header %>
+<% include ../templates/header_afterlogin %>
+<% include ../templates/menu_left %> 
+
+<div class="col-lg-6 col-md-6">
+	<!-- TOP MENU-->
+		<% include ../templates/menu_top %>
+	<!--TOP MENU ENDS-->
+	
+	<div class="white-bg br-6 mb-3 p-15 box-shadow box-title title-border">
+	  <div class="basic-ifo">
+		 <h5>Mein Tier
+			  <div class="add-btn add-new-pet">
+				<img class="rounded-circle" src="home/images/svg/add-blue.svg">
+				<a class="add-new-pet-form" href="javascript:;" data-toggle="modal" data-target="#add-pet-info">Tier hinzufüges</a>
+			  </div>
+		  </h5>
+		  <div class="row">
+			<div class="col-md-12">
+			  <div id="add-new-pet" class="add-new-pet-section" style="display: none;">
+				<form id="petsInfoForm" name="petsInfoForm" method="POST" enctype="multipart/form-data">
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Profilebild</label>
+					<div class="col-sm-8">
+						<div class="pet_profpic upload_petpic"> <img src="" alt="" class="petimage_add" style="display:none;"> </div>
+							  
+						<a class="btn btn-primary btn-gradient" href="javascript:void(0);" id="user_img" data-target="#img_crop" data-toggle="modal">
+						Profilbild hochladen</a>
+						
+						<input style="display:none;" name="pet_profilepic" class="pet_profilepic" id="pet_profilepic"   type="file" accept=".jpg,.jpeg,.png">
+						<input type="hidden" id="prof_img" name="prof_img" value="">
+					</div>
+					
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Tiername</label>
+					<div class="col-sm-8">
+					 <label class="error-field"><span class="errorMsg err_pswd" style="display:none;">Feld ist erforderlich</span></label> 
+					  <input type="text" class="form-control" id="pet_name" name="pet_name" placeholder="">
+					</div>
+				  </div>
+				
+				  
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Art</label>
+					<input type="hidden" name="artid" id="art_id" data-art="" value="" >
+					<div class="col-sm-8">
+						<div class="form-group">
+                        <div class="DropTriangle petarrow">
+                          <input id="select-artadd" name="art" type="text" class="form-control petartFocus add_art" placeholder="Art" value="">
+                        </div> 
+						
+                        <div id="add-artlist" class="dropDownlist petartFocusList" style="display: none;">
+							<ul class="add_artlist">
+								<li class="artid" data-id="3" data-artname="Alpakas"> Alpakas </li>
+								<li class="artid" data-id="4" data-artname="Bison"> Bison	
+								</li>
+								<li class="artid" data-id="5" data-artname="Esel"> Esel	
+								</li>
+								<li class="artid" data-id="9" data-artname="Hirsch"> Hirsch	</li>
+								<li class="artid" data-id="1" data-artname="Hunde"> Hunde	
+								</li>
+								<li class="artid" data-id="2" data-artname="Katzen"> Katzen	</li>
+								<li class="artid" data-id="6" data-artname="Lamas"> Lamas	
+								</li>
+								<li class="artid" data-id="7" data-artname="Pferde"> Pferde	</li>
+								<li class="artid" data-id="8" data-artname="Rehe"> Rehe	
+								</li>
+								<li class="artid" data-id="10" data-artname="Rinder">	Rinder	</li>
+								<li class="artid" data-id="11" data-artname="Schafe">	Schafe	</li>
+								<li class="artid" data-id="12" data-artname="Ziegen">	Ziegen	</li>
+							</ul>
+                        </div>
+                      </div>
+					</div>
+				  </div>
+				 
+				   <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Rassen</label>
+					<input type="hidden" name="rasse_id"   data-rasse="" id="rasse_id" value="">
+					<div class="col-sm-8">
+						<div class="form-group">
+								<div class="DropTriangle petarrow">
+								  <input  id="select-addrasse"   name="rasse" type="text" class="form-control addrassen"  placeholder="Rasse" value="">
+								</div>
+								
+								
+								
+								<div  id="add-rasselist" class="dropDownlist" style="display: none;">
+									<ul class="addrassen_list">          
+									 </ul>
+								</div>
+							</div>
+					</div>
+				  </div>
+				  
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Geschlecht </label>
+					<!--<div class="col-sm-8">
+						 <select class="form-control chosen-select" id="gender" name="gender">
+						  <option value="1" >Male</option>
+						  <option value="2" >Female</option>
+						  <option value="3" >Others</option>
+						</select> 						 
+					</div>-->
+					<div class="col-sm-8 my-auto">
+					  	<div class="radio form-check-inline" style="padding-left:10px;">
+						  <input id="geschlecht1"  type="radio" name="geschlecht" value="1">
+						  <label for="geschlecht1">M</label>
+						</div>
+						<div class="radio form-check-inline">
+						  <input id="geschlecht2"  type="radio" name="geschlecht" value="2">
+						  <label for="geschlecht2">W </label>
+						</div>
+					</div>
+					
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Geburtsjahrr</label>
+					<div class="col-sm-8">
+					  <input type="text" class="form-control" id="geburtsjahr" name="geburtsjahr" placeholder="" readonly>
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label"> Alter</label>
+					<div class="col-sm-8">
+					  <input type="text" class="form-control" id="age" name="age" placeholder="" maxlength="2">
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label"> Chipnummer</label>
+					<div class="col-sm-8">
+					  <input type="text" class="form-control" id="chipnum" name="chipnum" placeholder="" maxlength="15">
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Farb </label>
+					<div class="col-sm-8">
+					  <input type="text" class="form-control" id="color" name="color" placeholder="">
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Fur</label>
+					<div class="col-sm-8">
+					  <input type="text" class="form-control" id="fur" name="fur" placeholder="">
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Futter</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control" id="food" name="food" placeholder="">
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Herrchenl </label>
+					<div class="col-sm-8 my-auto">
+						<div class="checkbox form-check-inline">
+						  <input id="herch1" name="herch" class="styled" type="checkbox" value="1">
+						  <label for="Hobby">Hobby</label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="herch2" name="herch" class="styled" type="checkbox" value="2">
+						  <label for="Occupation">Occupation  </label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="herch3" name="herch" class="styled" type="checkbox" value="3">
+						  <label for="Breeding">Breeding </label>
+						</div>
+					</div>
+				  </div>
+
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Suche nache </label>
+					<div class="col-sm-8 my-auto">
+						 
+						<div class="checkbox form-check-inline">
+						  <input id="look1" name="look" class="styled" value="1" type="checkbox">
+						  <label for="look_01">Cat</label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="look2" name="look" class="styled" value="2" type="checkbox">
+						  <label for="look_02">Dog</label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="look3" name="look" class="styled" value="3" type="checkbox">
+						  <label for="look_03">Rat </label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="look4" name="look" class="styled" value="4" type="checkbox">
+						  <label for="look_04">Elephant </label>
+						</div>
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Was liebe ich</label>
+					<div class="col-sm-8 my-auto">
+					  <div class="checkbox form-check-inline">
+						  <input id="like_most1" name="like_most" class="styled" type="checkbox" value="1">
+						  <label for="walks">Wlaks</label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="like_most2" name="like_most" class="styled" type="checkbox" value="2">
+						  <label for="kshare">knowledge</label>
+						</div>
+						<div class="checkbox form-check-inline">
+						  <input id="like_most3" name="like_most" class="styled" type="checkbox" value="3">
+						  <label for="sports">Sports </label>
+						</div>
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Breeding Papers</label>
+					<div class="col-sm-8 my-auto">
+					  	<div class="radio form-check-inline" style="padding-left:10px;">
+						  <input id="papper1"  type="radio" name="papper" value="1">
+						  <label for="papper1">Yes</label>
+						</div>
+						<div class="radio form-check-inline">
+						  <input id="papper2"  type="radio" name="papper" value="2">
+						  <label for="papper2">No </label>
+						</div>
+					</div>
+				  </div>
+				  <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Über mein Tier</label>
+					<div class="col-sm-8">
+					  <textarea class="form-control" id="about_pet" name="about_pet" ></textarea>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col-md-12">
+					  <h5>Bild Hochladen</h5>
+					  <ul class="scroller-image upload-images-list add_gallery">
+						
+						 
+						<li>
+							<div class="upload-box add-file">
+								<a href="javascript:void(0);" onclick="$('#petGallery').click()">
+								  <i class="fa fa-plus"></i></a>
+								<input style="display:none;" name="petGallery" class="ImageUpload" id="petGallery" value="" type="file" accept=".jpg,.jpeg,.png" multiple>
+							</div>
+						</li>
+					  </ul>
+					</div>
+					<div class="col-md-12">
+						<a href="javascript:;" class="btn btn-primary btn-gradient save-new-pet-details pets_info">Speichern</a>
+					</div>
+				</div>
+				
+			  </form>
+			  </div>
+			  
+			 
+			  <div id="accordion">
+				<% pet.forEach(function(val){ %>
+				<div class="card box-shadow">
+					<div class="card-header" id="headingOne">
+						<div class="btn btn-link" data-toggle="collapse" data-target="#collapse<%- val.id%>" aria-expanded="true" aria-controls="collapseOne">
+							<div class="media">
+							  <img class="align-self-center mr-3" style="width: 68px; height: 68px; -webkit-border-radius: 50%;" src="images/pets/<%=(val.pet_profilepic)?val.pet_profilepic:'dummy_pet.jpg' %>">
+							  <div class="media-body">
+								<h4 class="panel-title"><%= (val.pet_name)?val.pet_name:'' %> <i class="fa fa-angle-down pull-right"></i></h4>
+								<ul class="actn-list">
+								  <li>
+									<img class="rounded-circle" src="home/images/svg/edit-grey1.svg">
+									<a href="javascript:;" data-toggle="modal" data-target="#edit-pet" class="edit_petinfo" data-pet-id="<%= (val.id)?val.id:'' %>">bearbeiten</a>
+								  </li>
+								  <li>
+									<img class="rounded-circle" src="home/images/svg/delete-button.svg">
+									<a href="javascript:;" class="remove_pet" data-pet-id="<%= (val.id)?val.id:'' %>">löschen</a>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+						</div>
+					</div>
+				 
+					
+
+
+					<div id="collapse<%- val.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+					  <div class="card-body">
+						<div class="card-body">
+						  <ul class="profile-cotact-list">
+						   
+							<!-- <li><span class="">Type</span><%= (val.type==1)?'Dog':( (val.type==2)?'Cat':((val.type==3)?'Bird':((val.type==4)?'Horse':( (val.type==5)?'Tiger':(''))))) %></li>
+							
+							<li><span class="">Art (Rasse) </span><%= (val.breed==1)?'Shepherd':( (val.breed==2)?'Labrador Retriever':((val.breed==3)?'Golden Retriever':((val.breed==4)?'French Bulldog':((val.breed==5)?' Bulldog':(''))))) %></li>-->
+							 
+							<li><span class="">Art </span><%= (val.art)?val.art:'' %></li>
+							<li><span class="">Rassen </span><%= (val.rassen)?val.rassen:'' %></li>
+							 
+							 <li><span class="">Geschlecht</span><%=(val.geschlecht==1)?'M':((val.geschlecht==2)?'W':'') %>
+							 
+							 <!--<%= (val.gender==1)?'Male':((val.gender==2)?'Female':'Others') %> --></li>
+							 <li><span class="">Geburtsjahrr</span><%=(val.geburtsjahr)?(val.geburtsjahr):'' %> </li>
+							 <li><span class="">Alter </span><%= (val.age)?(val.age):'' %></li>
+							 <li><span class="">Chipnummer </span><%= (val.chipnum)?(val.chipnum):'' %></li>
+							 <li><span class="">Farb </span><%= (val.color)?(val.color):'' %></li>
+							 <li><span class="">Fur </span><%= (val.fur)?(val.fur):'' %></li>
+							 <li><span class="">Futter </span><%= (val.food)?(val.food):'' %></li>
+							 <li><span class="">Was </span><!--includes used to check the value present in array--><% if(val.herrchenl.includes(1)) { %>Hobby <% } %><% if(val.herrchenl.includes(2)) { %>Occupation <% } %><% if(val.herrchenl.includes(3)) { %>Breeding <% } %>
+							 </li>
+							 <li><span class="">Suche nache </span><% if(val.looking.includes(1)) { %>Cat <% } %><% if(val.looking.includes(2)) { %>Dog <% } %><% if(val.looking.includes(3)) { %>Rat <% } %><% if(val.looking.includes(3)) { %>Elephant <% } %>
+							 </li>
+							 <li><span class="">Was liebe ich </span><% if(val.like_most.includes(1)) { %>Walks <% } %><% if(val.like_most.includes(2)) { %>Knowledge <% } %><% if(val.like_most.includes(3)) { %>Sports <% } %>
+							</li>
+							 <li><span class="">Pass </span><%= (val.breeding_papers==1)?'Yes':((val.breeding_papers==2)?'No':'') %></li>
+							 <li><span class="">Über mein Tier </span><%= (val.about_pet)?val.about_pet:'' %> </li>
+						  </ul>
+						  <h5 class="mt-2">Mein Fotos</h5>
+							<ul class="my-photo-list">
+							<% pet_gallery.forEach(function(glry){ 
+								if(val.id==glry.pet_id){ %>
+								<li>
+									<a style="background:url(images/pets/<%= glry.image %>) no-repeat center center; background-size:cover" data-fancybox="gallery<%= glry.pet_id %>" href="images/pets/<%= glry.image %>">
+								</a>
+								</li>
+							<% } });%>
+							</ul>
+						</div>
+					  </div>
+					</div>
+				 </div>
+				 	<% }); %>
+			</div>
+		
+			 </div>
+		  </div>
+	  </div>
+	</div>
+	
+</div>
+
+		<!--right-section-->
+          <div class="col-lg-3 col-md-3">
+			<div class="right">
+				<div class="br-6 mb-3  box-shadow oh">
+					 <div class="left-ads">
+						<img class="img-fluid" src="home/images/clinic-ad.jpg">
+					</div>
+				</div>
+			</div>
+          </div>
+		<!-- Right section ends-->
+		
+      </div>
+    </div>
+</section>
+
+<div id="edit-pet" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">Tier hinzufügen</h3>
+      </div>
+      <div class="modal-body">
+          <div class="p-10">
+            <form id="petsUpdateForm" name="petsUpdateForm" method="POST" enctype="multipart/form-data" >
+                <div class="form-group row">
+					  
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Profilebild</label>
+				 
+                  <div class="col-sm-8">
+					<div class="upload_petpic_edit upload_petpic">
+						<img src="" alt="" class="petimage_edit" style="display:none;">
+					</div>
+
+					<a class="btn btn-primary btn-gradient" href="javascript:void(0);" id="user_imga" data-target="#editimg_crop" data-toggle="modal"> Profilbild hochladen </a> 
+						
+                    <input style="display:none;" name="update_petpic" class="ImageUpload" id="update_petpic" multiple="" type="file" accept=".jpg,.jpeg,.png" >
+					
+					<input type="hidden" id="update_img" name="update_img" value="">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  	  <label for="staticEmail" class="col-sm-4 col-form-label">Tiername</label>
+	                  <div class="col-sm-8">
+		                  <div class="row">
+							  <div class="col-sm-5">
+			                    <input type="text" class="form-control" id="edit_name" name="edit_name" value="" placeholder="">
+			                  </div>
+			                  <div class="col-sm-7">
+			                  	<div class="row">
+				                 
+									<label for="staticEmail" class="col-sm-4 col-form-label">Geschlecht </label>
+				                  	<div class="col-sm-8">
+										<div class="radio form-check-inline" style="padding-left:10px;">
+											<input id="edit_geschlecht1" type="radio" name="edit_geschlecht" value="1">
+											<label for="edit_geschlecht1"> M</label>
+										</div>
+										<div class="radio form-check-inline">
+											<input id="edit_geschlecht2" type="radio" name="edit_geschlecht" value="2">
+											<label for="edit_geschlecht2"> W </label>
+										</div>									 
+				                  	</div>
+				                  </div>
+			                  </div>
+		                  </div>
+                  	  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Art & Rasse </label>
+                  <div class="col-sm-8">
+                    <div class="row">
+                    	<div class="col-sm-5">
+							<div class="form-group">
+                        <div class="DropTriangle petarrow">
+                          <input  id="select-art" name="editart" type="text" class="form-control petartFocus" placeholder="Art" value="">
+                        </div>
+						
+						<input type="hidden" name="edit_art" id="editart_id" value="" >
+                        <div id="art-list" class="dropDownlist petartFocusList" style="display: none;">
+						
+							<ul class="edit_artlist">
+								<li class="edit_art" data-id="3" data-artname="Alpakas"> Alpakas </li>
+								<li class="edit_art" data-id="4" data-artname="Bison"> Bison  </li>
+								<li class="edit_art" data-id="5" data-artname="Esel"> Esel	
+								</li>
+								<li class="edit_art" data-id="9" data-artname="Hirsch"> Hirsch	</li>
+								<li class="edit_art" data-id="1" data-artname="Hunde"> Hunde	
+								</li>
+								<li class="edit_art" data-id="2" data-artname="Katzen"> Katzen	</li>
+								<li class="edit_art" data-id="6" data-artname="Lamas"> Lamas	
+								</li>
+								<li class="edit_art" data-id="7" data-artname="Pferde"> Pferde	</li>
+								<li class="edit_art" data-id="8" data-artname="Rehe"> Rehe	
+								</li>
+								<li class="edit_art" data-id="10" data-artname="Rinder">	Rinder	</li>
+								<li class="edit_art" data-id="11" data-artname="Schafe">	Schafe	</li>
+								<li class="edit_art" data-id="12" data-artname="Ziegen">	Ziegen	</li>
+							</ul>
+                        </div>
+                      </div>
+                    	</div>
+                    	<div class="col-sm-7">
+                    		<div class="form-group">
+								<div class="DropTriangle petarrow">
+								  <input id="select-rasse"  name="editrasse" type="text" class="form-control editrassen" placeholder="Rasse" value="">
+								</div>
+								<input type="hidden" name="edit_rassen" id="editrasse_id" value="">
+								<div id="rasse-list" class="dropDownlist raseneditlist " style="display: none;">
+									<ul class="editrassen_list">          
+									 </ul>
+								</div>
+							</div>
+                    	</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">			
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Geburtsjahr</label>
+					<div class="col-sm-8">
+                    <div class="row">
+                    	<div class="col-sm-5">							
+							<input type="text" class="form-control" id="edit_geburtsjahr" name="edit_geburtsjahr" value="" readonly>
+                    	</div>
+                    	<div class="col-sm-7">
+			                <div class="row">
+								<label for="staticEmail" class="col-sm-4 col-form-label">Alter</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="edit_age" name="edit_age" value="" maxlength="2">									
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Chipnummer</label>
+					<div class="col-sm-8">
+						<div class="row">
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="edit_chip" name="edit_chip" value=""  >                    		
+							</div>
+							<div class="col-sm-7">
+								<div class="row">
+									<label for="staticEmail" class="col-sm-4 col-form-label">Ernährung</label>
+									<div class="col-sm-8">
+									<input type="text" class="form-control" id="edit_food" name="edit_food" placeholder="">
+				                    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+				
+                <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Farbe </label>            
+					<div class="col-sm-8">
+                    <div class="row">
+                    	<div class="col-sm-5">
+							<input type="text" class="form-control" id="edit_color" name="edit_color" placeholder="">
+                    	</div>
+                    	<div class="col-sm-7">
+			                <div class="row">
+							    <label for="staticEmail" class="col-sm-4 col-form-label">Pelz</label>
+			                    <div class="col-sm-8">
+			                  		<input type="text" class="form-control" id="edit_fur" name="edit_fur" placeholder="">
+			                    </div>
+			                </div>
+			            </div>
+                    </div>
+					</div>
+                </div>
+				
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Was </label>
+					<div class="col-sm-8 my-auto">
+						<div class="checkbox form-check-inline">
+							<input id="edit_hob" name="edit_herr" class="styled" type="checkbox" value="1">
+							<label for="Hobby">Hobby</label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_occ" name="edit_herr" class="styled" type="checkbox" value="2">
+							<label for="Occupation">Occupation  </label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_herr" name="edit_herr" class="styled" type="checkbox" value="3">
+							<label for="Breeding">Breeding </label>
+						</div>
+					</div>
+				</div>
+				
+
+                <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Suche nach </label>
+					<div class="col-sm-8 my-auto">
+						<div class="checkbox form-check-inline">
+							<input id="edit_look1" class="styled" type="checkbox" name="edit_look" value="1">
+							<label for="look_01">Cat</label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_look2" class="styled" type="checkbox" name="edit_look" value="2">
+							<label for="look_02">Dog</label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_look3" class="styled" type="checkbox" name="edit_look" value="3">
+							<label for="look_03">Rat </label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_look4" class="styled" type="checkbox" name="edit_look" value="4">
+							<label for="look_04">Elephant </label>
+						</div>
+					</div>
+                </div>
+				
+				
+                <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Was mag ich</label>
+					<div class="col-sm-8 my-auto">
+						<div class="checkbox form-check-inline">
+							<input id="edit_walks" class="styled" type="checkbox" name="edit_likes" value="1">
+							<label for="walks">Wlaks</label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_kshare" class="styled" type="checkbox" name="edit_likes" value="2">
+							<label for="kshare">knowledge</label>
+						</div>
+						<div class="checkbox form-check-inline">
+							<input id="edit_sports" class="styled" type="checkbox" name="edit_likes" value="3">
+							<label for="sports">Sports </label>
+						</div>
+					</div>
+                </div>
+				
+                <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Pass</label>
+					<div class="col-sm-8 my-auto">
+						<div class="radio form-check-inline" style="padding-left:10px;">
+							<input id="edit_paper1" type="radio" name="edit_paper" value="1">
+							<label for="edit_paper1">Yes</label>
+						</div>
+						<div class="radio form-check-inline">
+							<input id="edit_paper2" type="radio" name="edit_paper" value="2">
+							<label for="edit_paper2">No </label>
+						</div>
+					</div>
+                </div>
+				
+                <div class="form-group row">
+					<label for="staticEmail" class="col-sm-4 col-form-label">Über mein Tier</label>
+					<div class="col-sm-8">
+						<textarea class="form-control" id="edit_aboutpet" name="edit_aboutpet"></textarea>
+					</div>
+                </div>
+				
+                <div class="row">
+                  <div class="col-md-12">
+                    <h6>mehr Fotos hochladen</h6>
+                    <ul class="scroller-image upload-images-list edit_petglry">
+						<li>
+							<div class="upload-box add-file">
+                              <a href="javascript:void(0);" onclick="$('#edit_petGallery').click()">
+                                <i class="fa fa-plus"></i></a>
+                              <input style="display:none;" name="edit_petGallery" class="ImageUpload" id="edit_petGallery" multiple="" type="file">
+                            </div>
+						</li>
+                    </ul>
+                  </div>
+                  <div class="col-md-12">
+                      <a href="javascript:;" class="btn btn-primary btn-gradient update_petinfo btn-sm">Speichern</a>
+                  </div>
+              </div>
+			  <input type="hidden" id="pet_id" name="pet_id" value="">
+            </form>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ <!-Add pet image-!>
+<div id="img_crop" class="pop-post-new">
+	<form id="petpostForm" name="userimg_upload" method="POST" enctype="multipart/form-data">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header post-top-header btLr-6 btRr-6">
+				<span><img src="home/images/svg/picture.svg"> </span>
+				<span>Select your profile Image</span>
+				<a class="clsPostPopUp1" data-dismiss="modal">×</a>
+			</div>
+			<div class="modal-body main-post-box white-bg bbLr-6 bbRr-6 p-15">
+				<div class="row">
+		            <div class="col-md-6">
+		            	<div id="profileimageBox">
+			            	<div class="demo-cropper-base"></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="cropResult-base">
+							<div class="cropResult">
+								<img width="160" id="cropped_img"  height="160"/>
+							</div>
+						</div>
+						<canvas id="cropCanvas" class="cropCanvas" width="160" height="160" style="display:none;"></canvas>
+					</div>
+					<div class="col-md-12">
+						<div class="upload-new mt-3">
+							<ul>
+								<li>
+									<a class="edit_file file"> <img src="home/images/svg/photo-upload.svg">
+										Upload Photo
+										<input type="file" class="btn btn-primary" id="imageLoader" name="imageLoader" accept=".jpg,.jpeg,.png"/>
+									</a>
+								</li>
+								<li><a id="crop" class="crop"><img src="home/images/svg/crop.svg"> Crop</a></li>
+								<li>
+									<a href="javascript:;" class="savepetimg" id="save"   data-img="" style="display:none;" >Update</a>
+								</li>
+							</ul>
+					</div>
+					</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	</div>
+</div>
+
+<!-Edit Image-!>
+
+<div id="editimg_crop" class="pop-post-new">
+	<form id="petpostForm" name="userimg_upload" method="POST" enctype="multipart/form-data">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header post-top-header btLr-6 btRr-6">
+				<span><img src="home/images/svg/picture.svg"> </span>
+				<span>Select your profile Image</span>
+				<a class="clsPostPopUp2" data-dismiss="modal">×</a>
+			</div>
+			<div class="modal-body main-post-box white-bg bbLr-6 bbRr-6 p-15">
+				<div class="row">
+		            <div class="col-md-6">
+		            	<div id="editimageBox">
+			            	<div class="demo-cropper-base"></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="cropResult-base">
+							<div class="cropResult">
+								<img width="160" id="cropped_img_edit"  height="160"/>
+							</div>
+						</div>
+						<canvas id="cropCanvas" class="cropCanvas" width="160" height="160" style="display:none;"></canvas>
+					</div>
+					<div class="col-md-12">
+						<div class="upload-new mt-3">
+							<ul>
+								<li>
+									<a class="file"> <img src="home/images/svg/photo-upload.svg">
+										Upload Photo
+										<input type="file" class="btn btn-primary" id="edit_imageLoader" name="edit_imageLoader" accept=".jpg,.jpeg,.png"/>
+									</a>
+								</li>
+								<li><a id="crop_pet" class="crop_pet" style="display:none;"><img src="home/images/svg/crop.svg"> Crop</a></li>
+								<li>
+									<a href="javascript:;" class="editpetimg" id="save_edit"   data-img="" style="display:none;" >Update</a>
+								</li>
+							</ul>
+					</div>
+					</div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	</div>
+</div>
+<% include ../templates/footer_chat %>
+<% include ../templates/footer_common %>

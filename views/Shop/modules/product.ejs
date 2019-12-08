@@ -1,0 +1,49 @@
+
+  <div class="col-lg-4 col-md-4 col-sm-6 col-6 mb-3"> 
+    <div class="card">
+      <div class="card-body">
+        <div class="product-content">
+          <a class="btn btn-sm btn-gradient btn-border cus-tooltip"
+            href="/products/<%= product.id %>" data-toggle="tooltip"
+            data-placement="top" title=""
+            data-original-title="<%= product.name %>">
+            <i class="fa fa-search"></i>
+          </a>
+          <a class="btn btn-sm btn-gradient btn-border cus-tooltip fav-product addfavourite"
+            href="javascript:void(0);" product-id="<%= product.id %>"
+            data-toggle="tooltip" data-placement="top" title=""
+            data-original-title="<%= product.name %>">
+            <i class="fa fa-star"></i>
+          </a>
+
+          <a class="btn btn-sm btn-gradient btn-border cus-tooltip addtocart"
+            href="javascript:void(0);" product-id="<%= product.id %>"
+            product-price="<% product.price %>" product-qty="1" product-varient="12"
+            data-toggle="tooltip" data-placement="top" title=""
+            data-original-title="<%= product.name %>">
+            <i class="fa fa-shopping-cart"></i>
+          </a>
+        </div>
+        <img class="img-fluid" src="<%= product.images[0].src %>" alt="">
+        <div class="mprice shop-price-box">
+          <span>CHF <%= product.sale_price %>.00 <i
+              class="strike">CHF<%= product.regular_price%>.00</i></span>
+        </div>
+        <span class="product-new-label inner-gradient-bg">Neu</span>
+      </div>
+      <div class="card-footer shop-footer">
+        <h3 class="title"><a href="<%= product.permalink%>"><%= product.name %></a>
+        </h3>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-8">
+            <% if(product.weight != '') { %>
+            <p><%= product.weight %>kg</p>
+            <% } %>
+          </div>
+          <div class="col-lg-6 col-md-6 col-4 text-right">
+            <p><%= product.categories[0].name %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
